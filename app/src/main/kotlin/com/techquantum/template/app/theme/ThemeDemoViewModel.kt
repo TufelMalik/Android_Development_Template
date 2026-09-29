@@ -1,8 +1,8 @@
 package com.techquantum.template.app.theme
 
 import androidx.lifecycle.ViewModel
-import com.techquantum.template.ui.core.UiCore
-import com.techquantum.template.ui.theme.ThemeMode
+import com.techquantum.ui.core.UiCore
+import com.techquantum.ui.theme.ThemeMode
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

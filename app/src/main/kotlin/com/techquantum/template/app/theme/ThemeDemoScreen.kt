@@ -24,14 +24,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.techquantum.template.components.button.AppButton
-import com.techquantum.template.components.button.ButtonSize
-import com.techquantum.template.components.button.ButtonVariant
-import com.techquantum.template.components.card.AppCard
-import com.techquantum.template.components.card.CardVariant
-import com.techquantum.template.ui.core.UiCore
-import com.techquantum.template.ui.theme.AppTheme
-import com.techquantum.template.ui.theme.ThemeMode
+import com.techquantum.components.button.AppButton
+import com.techquantum.components.button.ButtonSize
+import com.techquantum.components.button.ButtonVariant
+import com.techquantum.components.card.AppCard
+import com.techquantum.components.card.CardVariant
+import com.techquantum.ui.core.UiCore
+import com.techquantum.ui.theme.AppTheme
+import com.techquantum.ui.theme.ThemeMode
 
 @Composable
 fun ThemeDemoScreen(

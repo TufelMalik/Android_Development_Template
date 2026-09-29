@@ -8,7 +8,13 @@ Reusable, screen-agnostic composable UI components built on `ui` tokens and the 
 - **`AppLazyRow`**: Horizontal carousel for one-dimensional items.
 - **`AppButton` / `AppButtonDefaults`**: Themed button supporting variants (`Primary`, `Secondary`, `Outline`, `Text`, `Danger`), sizes, loading spinner, and minimum touch targets.
 - **`AppCard`**: Elevated, outlined, and filled surface cards.
-- **`AppTextField` / `AppSearchBar`**: Form and search inputs with error handling and theme styling.
+- **`AppTextField` / `AppTextFieldVariant`**: Form inputs supporting `OUTLINED` and `FILLED` variants, helper texts, and clear buttons.
+- **`AppPasswordTextField`**: Password input with animated visibility (eye icon) toggle.
+- **`AppNumberTextField`**: Numeric input with +/- stepper buttons, min/max bounds, and prefix/suffix labels.
+- **`AppTextArea`**: Multiline text input with character counters and max length restrictions.
+- **`AppRadioCard` / `AppRadioCardGroup`**: Selectable single-choice cards with animated border, surface tint, and spring radio indicator.
+- **`AppCheckbox` / `AppCheckboxCard`**: Custom rounded checkboxes with animated spring checkmarks and multi-select cards.
+- **`AppAnimations` / `AppExpandableCard`**: Motion primitives including `bounceClick()` spring modifier, `pulseEffect()` breathing modifier, `AppAnimatedVisibility` presets, and animated expanding cards with rotating chevrons.
 - **`AppListItem` / `AppAvatar`**: Standard list item and circular avatar fallback.
 - **`SnackbarController` / `AppSnackbarHost`**: Decoupled snackbar event system for ViewModels.
 - **`ToastController` / `AppToastHost`**: Self-dismissing Compose toast overlay.

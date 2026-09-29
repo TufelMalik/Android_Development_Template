@@ -3,7 +3,7 @@ package com.techquantum.template.app.network
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.techquantum.template.common.result.AppResult
-import com.techquantum.template.components.list.ListUiState
+import com.techquantum.components.list.ListUiState
 import com.techquantum.template.network.firebase.firestore.FirestoreDataSource
 import com.techquantum.template.network.firebase.firestore.QuerySpec
 import com.techquantum.template.network.firebase.firestore.getDocument

@@ -3,11 +3,11 @@ package com.techquantum.template.app.network
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.techquantum.template.common.result.AppResult
-import com.techquantum.template.components.list.ListUiState
-import com.techquantum.template.network.ktor.api.ApiService
-import com.techquantum.template.network.ktor.api.get
-import com.techquantum.template.network.ktor.api.post
-import com.techquantum.template.network.ktor.request.ApiRequest
+import com.techquantum.components.list.ListUiState
+import com.techquantum.network.ktor.api.ApiService
+import com.techquantum.network.ktor.api.get
+import com.techquantum.network.ktor.api.post
+import com.techquantum.network.ktor.request.ApiRequest
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -23,7 +23,7 @@ data class PostDto(
 )
 
 class KtorDemoViewModel(
-    private val apiService: ApiService,
+    private val apiService: com.techquantum.network.ktor.api.ApiService,
 ) : ViewModel() {
 
     private val _postsState = MutableStateFlow<ListUiState<PostDto>>(ListUiState.Empty("Tap 'Fetch Posts' to test Ktor GET"))
@@ -53,6 +53,18 @@ class KtorDemoViewModel(
                 }
             }
         }
+    }
+
+    fun loadSampleData() {
+        val samplePosts = listOf(
+            PostDto(id = 1, title = "Understanding Compose Architecture", body = "Jetpack Compose simplifies and accelerates UI development on Android."),
+            PostDto(id = 2, title = "Multi-Module Project Design", body = "Isolated feature modules with strict dependency boundaries provide maximum scalability."),
+            PostDto(id = 3, title = "Ktor 3.1.1 Networking", body = "Lightweight, coroutine-native multiplatform HTTP client with resilient OkHttp engine."),
+            PostDto(id = 4, title = "Crash-Safe Primitives", body = "All network and database calls safely handle exceptions through domain AppResult."),
+            PostDto(id = 5, title = "Design System Tokens", body = "Centralized spacing, typography, and color tokens guarantee visual consistency."),
+        )
+        _postsState.value = ListUiState.Content(samplePosts)
+        _statusMessage.value = "Loaded ${samplePosts.size} sample posts locally"
     }
 
     fun createPost(title: String, body: String) {

@@ -18,17 +18,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.techquantum.template.components.button.AppButton
-import com.techquantum.template.components.button.ButtonSize
-import com.techquantum.template.components.button.ButtonVariant
-import com.techquantum.template.components.card.AppCard
-import com.techquantum.template.components.card.CardVariant
-import com.techquantum.template.components.input.AppTextField
-import com.techquantum.template.components.item.AppAvatar
-import com.techquantum.template.components.item.AppListItem
-import com.techquantum.template.components.list.AppLazyGrid
+import com.techquantum.components.button.AppButton
+import com.techquantum.components.button.ButtonSize
+import com.techquantum.components.button.ButtonVariant
+import com.techquantum.components.card.AppCard
+import com.techquantum.components.card.CardVariant
+import com.techquantum.components.input.AppTextField
+import com.techquantum.components.item.AppAvatar
+import com.techquantum.components.item.AppListItem
+import com.techquantum.components.list.AppLazyGrid
 import com.techquantum.template.network.firebase.core.FirebaseCore
-import com.techquantum.template.ui.theme.AppTheme
+import com.techquantum.ui.theme.AppTheme
 
 @Composable
 fun FirebaseDemoScreen(
@@ -44,58 +44,58 @@ fun FirebaseDemoScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .padding(AppTheme.spacing.md),
+            .padding(_root_ide_package_.com.techquantum.ui.theme.AppTheme.spacing.md),
     ) {
         // Core configuration info
         AppCard(variant = CardVariant.Outlined) {
             Column(modifier = Modifier.fillMaxWidth()) {
                 Text(
                     text = "Firebase Module Demo",
-                    style = AppTheme.typography.titleMedium,
-                    color = AppTheme.colors.onSurface,
+                    style = _root_ide_package_.com.techquantum.ui.theme.AppTheme.typography.titleMedium,
+                    color = _root_ide_package_.com.techquantum.ui.theme.AppTheme.colors.onSurface,
                 )
-                Spacer(modifier = Modifier.height(AppTheme.spacing.xxs))
+                Spacer(modifier = Modifier.height(_root_ide_package_.com.techquantum.ui.theme.AppTheme.spacing.xxs))
                 Text(
                     text = "RTDB: ${FirebaseCore.realtimeDbUrl}\nStorage: ${FirebaseCore.storageBucket}\nOffline Persistence: ${FirebaseCore.isOfflinePersistenceEnabled}",
-                    style = AppTheme.typography.bodySmall,
-                    color = AppTheme.colors.onSurfaceVariant,
+                    style = _root_ide_package_.com.techquantum.ui.theme.AppTheme.typography.bodySmall,
+                    color = _root_ide_package_.com.techquantum.ui.theme.AppTheme.colors.onSurfaceVariant,
                 )
                 if (statusMessage != null) {
-                    Spacer(modifier = Modifier.height(AppTheme.spacing.xs))
+                    Spacer(modifier = Modifier.height(_root_ide_package_.com.techquantum.ui.theme.AppTheme.spacing.xs))
                     Text(
                         text = statusMessage ?: "",
-                        style = AppTheme.typography.bodySmall,
-                        color = AppTheme.colors.primary,
+                        style = _root_ide_package_.com.techquantum.ui.theme.AppTheme.typography.bodySmall,
+                        color = _root_ide_package_.com.techquantum.ui.theme.AppTheme.colors.primary,
                     )
                 }
             }
         }
 
-        Spacer(modifier = Modifier.height(AppTheme.spacing.sm))
+        Spacer(modifier = Modifier.height(_root_ide_package_.com.techquantum.ui.theme.AppTheme.spacing.sm))
 
         // Create document form
         AppCard(variant = CardVariant.Elevated) {
             Column(modifier = Modifier.fillMaxWidth()) {
                 Text(
                     text = "Add Document to 'demo_items'",
-                    style = AppTheme.typography.titleSmall,
-                    color = AppTheme.colors.onSurface,
+                    style = _root_ide_package_.com.techquantum.ui.theme.AppTheme.typography.titleSmall,
+                    color = _root_ide_package_.com.techquantum.ui.theme.AppTheme.colors.onSurface,
                 )
-                Spacer(modifier = Modifier.height(AppTheme.spacing.xs))
+                Spacer(modifier = Modifier.height(_root_ide_package_.com.techquantum.ui.theme.AppTheme.spacing.xs))
                 AppTextField(
                     value = itemName,
                     onValueChange = { itemName = it },
                     placeholder = "Item name...",
                     singleLine = true,
                 )
-                Spacer(modifier = Modifier.height(AppTheme.spacing.xs))
+                Spacer(modifier = Modifier.height(_root_ide_package_.com.techquantum.ui.theme.AppTheme.spacing.xs))
                 AppTextField(
                     value = itemDesc,
                     onValueChange = { itemDesc = it },
                     placeholder = "Description...",
                     singleLine = true,
                 )
-                Spacer(modifier = Modifier.height(AppTheme.spacing.sm))
+                Spacer(modifier = Modifier.height(_root_ide_package_.com.techquantum.ui.theme.AppTheme.spacing.sm))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.End,
@@ -107,7 +107,7 @@ fun FirebaseDemoScreen(
                         variant = ButtonVariant.Secondary,
                         size = ButtonSize.Small,
                     )
-                    Spacer(modifier = Modifier.width(AppTheme.spacing.sm))
+                    Spacer(modifier = Modifier.width(_root_ide_package_.com.techquantum.ui.theme.AppTheme.spacing.sm))
                     AppButton(
                         text = "Add Document",
                         onClick = {
@@ -122,7 +122,7 @@ fun FirebaseDemoScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(AppTheme.spacing.md))
+        Spacer(modifier = Modifier.height(_root_ide_package_.com.techquantum.ui.theme.AppTheme.spacing.md))
 
         // Document list
         AppLazyGrid(
@@ -135,7 +135,7 @@ fun FirebaseDemoScreen(
                     headline = item.name,
                     supportingText = item.description,
                     leadingContent = {
-                        AppAvatar(name = item.name, size = AppTheme.sizing.avatarSm)
+                        AppAvatar(name = item.name, size = _root_ide_package_.com.techquantum.ui.theme.AppTheme.sizing.avatarSm)
                     },
                 )
             }

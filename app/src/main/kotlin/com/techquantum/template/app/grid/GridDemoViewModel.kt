@@ -1,7 +1,7 @@
 package com.techquantum.template.app.grid
 
 import androidx.lifecycle.ViewModel
-import com.techquantum.template.components.list.ListUiState
+import com.techquantum.components.list.ListUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -23,19 +23,20 @@ class GridDemoViewModel : ViewModel() {
         DemoItem("6", "Design Tokens", "UiCore Global Theming", "UI"),
     )
 
-    private val _uiState = MutableStateFlow<ListUiState<DemoItem>>(ListUiState.Content(sampleItems))
-    val uiState: StateFlow<ListUiState<DemoItem>> = _uiState.asStateFlow()
+    private val _uiState = MutableStateFlow<com.techquantum.components.list.ListUiState<DemoItem>>(
+        _root_ide_package_.com.techquantum.components.list.ListUiState.Content(sampleItems))
+    val uiState: StateFlow<com.techquantum.components.list.ListUiState<DemoItem>> = _uiState.asStateFlow()
 
     fun showContent() {
-        _uiState.value = ListUiState.Content(sampleItems)
+        _uiState.value = _root_ide_package_.com.techquantum.components.list.ListUiState.Content(sampleItems)
     }
 
     fun showLoading() {
-        _uiState.value = ListUiState.Loading
+        _uiState.value = _root_ide_package_.com.techquantum.components.list.ListUiState.Loading
     }
 
     fun showEmpty() {
-        _uiState.value = ListUiState.Empty("No items found. Try switching states!")
+        _uiState.value = _root_ide_package_.com.techquantum.components.list.ListUiState.Empty("No items found. Try switching states!")
     }
 
     fun showError() {

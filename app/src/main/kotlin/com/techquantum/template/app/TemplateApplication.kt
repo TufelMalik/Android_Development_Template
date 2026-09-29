@@ -5,7 +5,7 @@ import com.techquantum.template.app.di.appModule
 import com.techquantum.template.common.di.commonModule
 import com.techquantum.template.localdb.di.databaseModule
 import com.techquantum.template.network.firebase.di.firebaseModule
-import com.techquantum.template.network.ktor.di.ktorModule
+import com.techquantum.network.ktor.di.ktorModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -17,7 +17,7 @@ class TemplateApplication : Application() {
             androidContext(this@TemplateApplication)
             modules(
                 commonModule,
-                ktorModule,
+                _root_ide_package_.com.techquantum.network.ktor.di.ktorModule,
                 firebaseModule,
                 databaseModule,
                 appModule,

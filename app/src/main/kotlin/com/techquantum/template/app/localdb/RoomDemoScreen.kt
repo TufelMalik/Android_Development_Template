@@ -24,18 +24,18 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.techquantum.template.components.button.AppButton
-import com.techquantum.template.components.button.ButtonSize
-import com.techquantum.template.components.button.ButtonVariant
-import com.techquantum.template.components.card.AppCard
-import com.techquantum.template.components.card.CardVariant
-import com.techquantum.template.components.feedback.dialog.ConfirmDialog
-import com.techquantum.template.components.input.AppTextField
-import com.techquantum.template.components.item.AppAvatar
-import com.techquantum.template.components.item.AppListItem
-import com.techquantum.template.components.list.AppLazyGrid
+import com.techquantum.components.button.AppButton
+import com.techquantum.components.button.ButtonSize
+import com.techquantum.components.button.ButtonVariant
+import com.techquantum.components.card.AppCard
+import com.techquantum.components.card.CardVariant
+import com.techquantum.components.feedback.dialog.ConfirmDialog
+import com.techquantum.components.input.AppTextField
+import com.techquantum.components.item.AppAvatar
+import com.techquantum.components.item.AppListItem
+import com.techquantum.components.list.AppLazyGrid
 import com.techquantum.template.localdb.core.DatabaseCore
-import com.techquantum.template.ui.theme.AppTheme
+import com.techquantum.ui.theme.AppTheme
 
 @Composable
 fun RoomDemoScreen(
@@ -63,58 +63,58 @@ fun RoomDemoScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .padding(AppTheme.spacing.md),
+            .padding(_root_ide_package_.com.techquantum.ui.theme.AppTheme.spacing.md),
     ) {
         // Database info banner
         AppCard(variant = CardVariant.Outlined) {
             Column(modifier = Modifier.fillMaxWidth()) {
                 Text(
                     text = "Room Persistence Demo",
-                    style = AppTheme.typography.titleMedium,
-                    color = AppTheme.colors.onSurface,
+                    style = _root_ide_package_.com.techquantum.ui.theme.AppTheme.typography.titleMedium,
+                    color = _root_ide_package_.com.techquantum.ui.theme.AppTheme.colors.onSurface,
                 )
-                Spacer(modifier = Modifier.height(AppTheme.spacing.xxs))
+                Spacer(modifier = Modifier.height(_root_ide_package_.com.techquantum.ui.theme.AppTheme.spacing.xxs))
                 Text(
                     text = "DB: ${DatabaseCore.databaseName} (v${DatabaseCore.databaseVersion}) | WAL: ${DatabaseCore.enableWal}",
-                    style = AppTheme.typography.bodySmall,
-                    color = AppTheme.colors.onSurfaceVariant,
+                    style = _root_ide_package_.com.techquantum.ui.theme.AppTheme.typography.bodySmall,
+                    color = _root_ide_package_.com.techquantum.ui.theme.AppTheme.colors.onSurfaceVariant,
                 )
                 if (statusMessage != null) {
-                    Spacer(modifier = Modifier.height(AppTheme.spacing.xs))
+                    Spacer(modifier = Modifier.height(_root_ide_package_.com.techquantum.ui.theme.AppTheme.spacing.xs))
                     Text(
                         text = statusMessage ?: "",
-                        style = AppTheme.typography.bodySmall,
-                        color = AppTheme.colors.primary,
+                        style = _root_ide_package_.com.techquantum.ui.theme.AppTheme.typography.bodySmall,
+                        color = _root_ide_package_.com.techquantum.ui.theme.AppTheme.colors.primary,
                     )
                 }
             }
         }
 
-        Spacer(modifier = Modifier.height(AppTheme.spacing.sm))
+        Spacer(modifier = Modifier.height(_root_ide_package_.com.techquantum.ui.theme.AppTheme.spacing.sm))
 
         // Insert entity form
         AppCard(variant = CardVariant.Elevated) {
             Column(modifier = Modifier.fillMaxWidth()) {
                 Text(
                     text = "Insert SampleEntity",
-                    style = AppTheme.typography.titleSmall,
-                    color = AppTheme.colors.onSurface,
+                    style = _root_ide_package_.com.techquantum.ui.theme.AppTheme.typography.titleSmall,
+                    color = _root_ide_package_.com.techquantum.ui.theme.AppTheme.colors.onSurface,
                 )
-                Spacer(modifier = Modifier.height(AppTheme.spacing.xs))
+                Spacer(modifier = Modifier.height(_root_ide_package_.com.techquantum.ui.theme.AppTheme.spacing.xs))
                 AppTextField(
                     value = title,
                     onValueChange = { title = it },
                     placeholder = "Entity title...",
                     singleLine = true,
                 )
-                Spacer(modifier = Modifier.height(AppTheme.spacing.xs))
+                Spacer(modifier = Modifier.height(_root_ide_package_.com.techquantum.ui.theme.AppTheme.spacing.xs))
                 AppTextField(
                     value = description,
                     onValueChange = { description = it },
                     placeholder = "Entity description...",
                     singleLine = true,
                 )
-                Spacer(modifier = Modifier.height(AppTheme.spacing.sm))
+                Spacer(modifier = Modifier.height(_root_ide_package_.com.techquantum.ui.theme.AppTheme.spacing.sm))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.End,
@@ -126,7 +126,7 @@ fun RoomDemoScreen(
                         variant = ButtonVariant.Danger,
                         size = ButtonSize.Small,
                     )
-                    Spacer(modifier = Modifier.width(AppTheme.spacing.sm))
+                    Spacer(modifier = Modifier.width(_root_ide_package_.com.techquantum.ui.theme.AppTheme.spacing.sm))
                     AppButton(
                         text = "Insert",
                         onClick = {
@@ -141,7 +141,7 @@ fun RoomDemoScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(AppTheme.spacing.md))
+        Spacer(modifier = Modifier.height(_root_ide_package_.com.techquantum.ui.theme.AppTheme.spacing.md))
 
         // Entities Grid
         AppLazyGrid(
@@ -154,7 +154,7 @@ fun RoomDemoScreen(
                     headline = entity.title,
                     supportingText = entity.description ?: "ID: ${entity.id.take(8)}...",
                     leadingContent = {
-                        AppAvatar(name = entity.title, size = AppTheme.sizing.avatarSm)
+                        AppAvatar(name = entity.title, size = _root_ide_package_.com.techquantum.ui.theme.AppTheme.sizing.avatarSm)
                     },
                     trailingContent = {
                         IconButton(
@@ -164,7 +164,7 @@ fun RoomDemoScreen(
                             Icon(
                                 imageVector = Icons.Default.Delete,
                                 contentDescription = "Delete",
-                                tint = AppTheme.colors.error,
+                                tint = _root_ide_package_.com.techquantum.ui.theme.AppTheme.colors.error,
                             )
                         }
                     },

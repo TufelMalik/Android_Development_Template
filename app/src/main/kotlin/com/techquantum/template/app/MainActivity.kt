@@ -39,9 +39,9 @@ import com.techquantum.template.app.network.KtorDemoScreen
 import com.techquantum.template.app.network.KtorDemoViewModel
 import com.techquantum.template.app.theme.ThemeDemoScreen
 import com.techquantum.template.app.theme.ThemeDemoViewModel
-import com.techquantum.template.components.feedback.snackbar.AppSnackbarHost
-import com.techquantum.template.components.feedback.toast.AppToastHost
-import com.techquantum.template.ui.theme.AppTheme
+import com.techquantum.components.feedback.snackbar.AppSnackbarHost
+import com.techquantum.components.feedback.toast.AppToastHost
+import com.techquantum.ui.theme.AppTheme
 import org.koin.androidx.compose.koinViewModel
 
 enum class DemoTab(val title: String, val icon: ImageVector) {
@@ -61,7 +61,7 @@ class MainActivity : ComponentActivity() {
             val themeViewModel: ThemeDemoViewModel = koinViewModel()
             val themeMode by themeViewModel.themeMode.collectAsState()
 
-            AppTheme(themeMode = themeMode) {
+            _root_ide_package_.com.techquantum.ui.theme.AppTheme(themeMode = themeMode) {
                 MainAppScreen(themeViewModel = themeViewModel)
             }
         }
@@ -81,18 +81,18 @@ fun MainAppScreen(
                 title = {
                     Text(
                         text = "Android Template: ${tabs[selectedTab].title}",
-                        style = AppTheme.typography.titleLarge,
+                        style = _root_ide_package_.com.techquantum.ui.theme.AppTheme.typography.titleLarge,
                     )
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = AppTheme.colors.surface,
-                    titleContentColor = AppTheme.colors.onSurface,
+                    containerColor = _root_ide_package_.com.techquantum.ui.theme.AppTheme.colors.surface,
+                    titleContentColor = _root_ide_package_.com.techquantum.ui.theme.AppTheme.colors.onSurface,
                 ),
             )
         },
         bottomBar = {
             NavigationBar(
-                containerColor = AppTheme.colors.surface,
+                containerColor = _root_ide_package_.com.techquantum.ui.theme.AppTheme.colors.surface,
             ) {
                 tabs.forEachIndexed { index, tab ->
                     NavigationBarItem(
@@ -131,8 +131,8 @@ fun MainAppScreen(
             }
 
             // Global decoupled feedback hosts
-            AppSnackbarHost()
-            AppToastHost()
+            _root_ide_package_.com.techquantum.components.feedback.snackbar.AppSnackbarHost()
+            _root_ide_package_.com.techquantum.components.feedback.toast.AppToastHost()
         }
     }
 }

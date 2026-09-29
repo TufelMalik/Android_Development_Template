@@ -3,7 +3,7 @@ package com.techquantum.template.app.localdb
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.techquantum.template.common.result.AppResult
-import com.techquantum.template.components.list.ListUiState
+import com.techquantum.components.list.ListUiState
 import com.techquantum.template.localdb.base.LocalDataSource
 import com.techquantum.template.localdb.database.dao.SampleDao
 import com.techquantum.template.localdb.database.entity.SampleEntity
