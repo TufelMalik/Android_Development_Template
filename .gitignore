@@ -1,17 +1,94 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
+# ==============================================================================
+# Android & Gradle Build Artifacts
+# ==============================================================================
+.gradle/
 build/
 **/build/
+bin/
+gen/
+out/
+
+# Android package outputs
+*.apk
+*.aar
+*.aab
+*.ap_
+
+# Dex and class files
+*.dex
+*.class
+
+# Proguard / R8 mappings and output
+proguard/
+**/proguard/
+
+# ==============================================================================
+# Native / C++ Build Artifacts (NDK / CMake)
+# ==============================================================================
+.externalNativeBuild/
+.cxx/
+obj/
+*.so
+
+# ==============================================================================
+# Profiling & Caches
+# ==============================================================================
 captures/
-.externalNativeBuild
-.cxx
-local.properties
 .kotlin/
+*.hprof
+
+# ==============================================================================
+# Android Studio / IntelliJ IDEA / VS Code / Eclipse
+# ==============================================================================
+.idea/
+*.iml
+*.ipr
+*.iws
+.navigation/
+.vscode/
+.project
+.classpath
+.settings/
+
+# ==============================================================================
+# Local & Environment Configuration / Credentials / Secrets
+# ==============================================================================
+local.properties
+/local.properties
+*.properties.local
+secrets.properties
+signing.properties
+keystore.properties
+*.keystore
+*.jks
+*.key
+
+# Google Services configuration (uncomment if per-environment/developer)
+# google-services.json
+
+# ==============================================================================
+# Log Files
+# ==============================================================================
+*.log
+*.log.*
+
+# ==============================================================================
+# OS Generated & System Files
+# ==============================================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ==============================================================================
+# Temporary & Backup Files
+# ==============================================================================
+*~
+*.swp
+*.swo
+*.tmp
+*.bak
