@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
     id("template.koin")
 }
 
@@ -39,6 +40,7 @@ dependencies {
     implementation(project(":network:ktor"))
     implementation(project(":network:firebase"))
     implementation(project(":local-db"))
+    implementation(libs.kotlinx.serialization.json)
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
