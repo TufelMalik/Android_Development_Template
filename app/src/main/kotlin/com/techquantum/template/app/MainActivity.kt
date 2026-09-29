@@ -75,12 +75,6 @@ fun MainAppScreen(
 ) {
     var selectedTab by remember { mutableIntStateOf(0) }
     val tabs = DemoTab.entries
-
-    val gridViewModel: GridDemoViewModel = koinViewModel()
-    val roomViewModel: RoomDemoViewModel = koinViewModel()
-    val ktorViewModel: KtorDemoViewModel = koinViewModel()
-    val firebaseViewModel: FirebaseDemoViewModel = koinViewModel()
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -118,10 +112,22 @@ fun MainAppScreen(
         ) {
             when (tabs[selectedTab]) {
                 DemoTab.THEME -> ThemeDemoScreen(viewModel = themeViewModel)
-                DemoTab.GRID -> GridDemoScreen(viewModel = gridViewModel)
-                DemoTab.ROOM -> RoomDemoScreen(viewModel = roomViewModel)
-                DemoTab.KTOR -> KtorDemoScreen(viewModel = ktorViewModel)
-                DemoTab.FIREBASE -> FirebaseDemoScreen(viewModel = firebaseViewModel)
+                DemoTab.GRID -> {
+                    val gridViewModel: GridDemoViewModel = koinViewModel()
+                    GridDemoScreen(viewModel = gridViewModel)
+                }
+                DemoTab.ROOM -> {
+                    val roomViewModel: RoomDemoViewModel = koinViewModel()
+                    RoomDemoScreen(viewModel = roomViewModel)
+                }
+                DemoTab.KTOR -> {
+                    val ktorViewModel: KtorDemoViewModel = koinViewModel()
+                    KtorDemoScreen(viewModel = ktorViewModel)
+                }
+                DemoTab.FIREBASE -> {
+                    val firebaseViewModel: FirebaseDemoViewModel = koinViewModel()
+                    FirebaseDemoScreen(viewModel = firebaseViewModel)
+                }
             }
 
             // Global decoupled feedback hosts

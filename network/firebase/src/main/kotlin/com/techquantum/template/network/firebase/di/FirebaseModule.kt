@@ -1,5 +1,8 @@
 package com.techquantum.template.network.firebase.di
 
+import android.content.Context
+import com.google.firebase.FirebaseApp
+import com.google.firebase.FirebaseOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
@@ -15,10 +18,26 @@ import com.techquantum.template.network.firebase.realtimedb.RealtimeDbDataSource
 import com.techquantum.template.network.firebase.realtimedb.RealtimeDbDataSourceImpl
 import com.techquantum.template.network.firebase.storage.StorageDataSource
 import com.techquantum.template.network.firebase.storage.StorageDataSourceImpl
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
+
+private fun ensureFirebaseApp(context: Context): FirebaseApp {
+    return if (FirebaseApp.getApps(context).isEmpty()) {
+        val options = FirebaseOptions.Builder()
+            .setApplicationId(context.packageName)
+            .setApiKey("AIzaSyDummyTemplateApiKey0000000000000")
+            .setProjectId("dummy-template-project")
+            .build()
+        FirebaseApp.initializeApp(context, options)
+    } else {
+        FirebaseApp.getInstance()
+    }
+}
 
 val firebaseModule = module {
     single<FirebaseFirestore> {
+        val context = androidContext()
+        ensureFirebaseApp(context)
         val firestore = FirebaseFirestore.getInstance()
         val settingsBuilder = FirebaseFirestoreSettings.Builder()
         if (FirebaseCore.isOfflinePersistenceEnabled) {
@@ -29,6 +48,8 @@ val firebaseModule = module {
     }
 
     single<FirebaseDatabase> {
+        val context = androidContext()
+        ensureFirebaseApp(context)
         val db = try {
             FirebaseDatabase.getInstance(FirebaseCore.realtimeDbUrl)
         } catch (_: Exception) {
@@ -43,10 +64,14 @@ val firebaseModule = module {
     }
 
     single<FirebaseAuth> {
+        val context = androidContext()
+        ensureFirebaseApp(context)
         FirebaseAuth.getInstance()
     }
 
     single<FirebaseStorage> {
+        val context = androidContext()
+        ensureFirebaseApp(context)
         try {
             FirebaseStorage.getInstance(FirebaseCore.storageBucket)
         } catch (_: Exception) {
