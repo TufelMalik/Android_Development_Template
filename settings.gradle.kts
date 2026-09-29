@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -23,4 +24,12 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "TQD Template"
+
 include(":app")
+include(":core-common")
+include(":ui")
+include(":ui-components")
+include(":network:ktor")
+include(":network:firebase")
+include(":local-db")
+include(":test")

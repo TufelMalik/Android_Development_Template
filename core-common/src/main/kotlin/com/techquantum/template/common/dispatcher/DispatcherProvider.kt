@@ -1,0 +1,16 @@
+package com.techquantum.template.common.dispatcher
+
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+
+interface DispatcherProvider {
+    val io: CoroutineDispatcher
+    val default: CoroutineDispatcher
+    val main: CoroutineDispatcher
+}
+
+internal class DefaultDispatcherProvider : DispatcherProvider {
+    override val io: CoroutineDispatcher = Dispatchers.IO
+    override val default: CoroutineDispatcher = Dispatchers.Default
+    override val main: CoroutineDispatcher = Dispatchers.Main
+}
